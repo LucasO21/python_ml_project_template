@@ -49,7 +49,7 @@ class DataIngestion:
             logging.info("Error in Data Ingestion...")
             raise CustomException(e, sys)
 
-
-if __name__ == '__main__':
-    obj = DataIngestion()
-    obj.get_data_ingestion()
+# Test ----
+# if __name__ == '__main__':
+#     obj = DataIngestion()
+#     obj.get_data_ingestion()
