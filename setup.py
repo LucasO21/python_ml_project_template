@@ -23,6 +23,5 @@ setup(
     author_email     = "clfo2014@gmail.com",
     version          = "0.0.1",
     packages         = find_packages(),
-    scripts          = ['manage.py'],
     install_requires = get_requirements('requirements.txt')
 )
