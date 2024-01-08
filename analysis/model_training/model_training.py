@@ -118,3 +118,8 @@ for i in range(len(list(models))):
 # Model Comparison ----
 model_comparison = pd.DataFrame({'model': model_list, 'r2_score': r2_list}) \
     .sort_values(by='r2_score', ascending=False)
+
+
+# Actual vs Predicted ----
+df_pred = pd.DataFrame({'Actual': y_test, 'Predicted': y_test_pred}) \
+    .reset_index(drop=True)
