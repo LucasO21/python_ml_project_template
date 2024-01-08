@@ -3,8 +3,12 @@
 # IMPORTS ----
 import os
 import sys
-from src.exception import CustomException
-from src.logger import logging
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))
+
+from exception import CustomException
+from logger import logging
+
 import pandas as pd
 
 from sklearn.model_selection import train_test_split
@@ -15,7 +19,7 @@ from dataclasses import dataclass
 @dataclass
 class DataIngestionConfig:
     train_data_path: str = os.path.join('artifacts', 'data', 'train.csv')
-    train_data_path: str = os.path.join('artifacts', 'data', 'test.csv')
+    test_data_path: str = os.path.join('artifacts', 'data', 'test.csv')
     raw_data_path: str = os.path.join('artifacts', 'data', 'data.csv')
 
 class DataIngestion:
@@ -26,7 +30,6 @@ class DataIngestion:
         logging.info('Data Ingestion Started...')
         try:
             df = pd.read_csv('analysis/data/student.csv')
-            logging.info('Raw Data Ingestion Completed...')
 
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)
             df.to_csv(self.ingestion_config.raw_data_path, index=False)
@@ -43,4 +46,10 @@ class DataIngestion:
                 self.ingestion_config.test_data_path
             )
         except Exception as e:
+            logging.info("Error in Data Ingestion...")
             raise CustomException(e, sys)
+
+
+if __name__ == '__main__':
+    obj = DataIngestion()
+    obj.get_data_ingestion()
