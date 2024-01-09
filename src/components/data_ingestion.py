@@ -9,6 +9,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 from exception import CustomException
 from logger import logging
 from components.data_transformation import DataTransformation, DataTransformationConfig
+from components.model_trainer import ModelTrainer, ModelTrainingConfig
 
 import pandas as pd
 
@@ -56,5 +57,8 @@ class DataIngestion:
 #     train_data, test_data = obj.get_data_ingestion()
 
 #     data_transformation = DataTransformation()
-#     data_transformation.get_data_transformation(train_data, test_data)
+#     train_array, test_array,_ = data_transformation.get_data_transformation(train_data, test_data)
+
+#     model_trainer = ModelTrainer()
+#     print(model_trainer.get_trained_model(train_array, test_array, DataTransformationConfig.preprocessor_obj_file_path))
 
