@@ -13,6 +13,7 @@ import pandas as pd
 from exception import CustomException
 
 from sklearn.metrics import r2_score
+from sklearn.model_selection import GridSearchCV
 
 
 # Save Path Function ----
@@ -30,7 +31,7 @@ def save_object(file_path, obj):
 
 
 # Model Evaluation Function ----
-def get_model_evaluation(models, X_train, y_train,X_test,y_test):
+def get_model_evaluation(models, X_train, y_train, X_test, y_test, params):
     try:
         report = {}
 
@@ -38,12 +39,12 @@ def get_model_evaluation(models, X_train, y_train,X_test,y_test):
 
             model = list(models.values())[i]
 
-            # para=param[list(models.keys())[i]]
+            para = params[list(models.keys())[i]]
 
-            # gs = GridSearchCV(model,para,cv=3)
-            # gs.fit(X_train,y_train)
+            gs = GridSearchCV(model,para,cv=3)
+            gs.fit(X_train,y_train)
 
-            # model.set_params(**gs.best_params_)
+            model.set_params(**gs.best_params_)
 
             model.fit(X_train, y_train)
 
