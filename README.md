@@ -19,3 +19,6 @@ pip install -r requirements.txt
 ```
 
 Alternatively, you can code along by following the video playlist at [this](https://www.youtube.com/playlist?list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG) link.
+
+## Helpful Resources
+Deploy a Web Application Using Elastic Beanstalk (YouTube) [Link](https://www.youtube.com/watch?v=2BoVhej0QVI).
