@@ -8,6 +8,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 from exception import CustomException
 from logger import logging
+from components.data_transformation import DataTransformation, DataTransformationConfig
 
 import pandas as pd
 
@@ -49,7 +50,11 @@ class DataIngestion:
             logging.info("Error in Data Ingestion...")
             raise CustomException(e, sys)
 
+# Test ----
+# if __name__ == '__main__':
+#     obj = DataIngestion()
+#     train_data, test_data = obj.get_data_ingestion()
 
-if __name__ == '__main__':
-    obj = DataIngestion()
-    obj.get_data_ingestion()
+#     data_transformation = DataTransformation()
+#     data_transformation.get_data_transformation(train_data, test_data)
+
