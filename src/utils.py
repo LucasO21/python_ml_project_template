@@ -8,9 +8,10 @@
 import os
 import sys
 import dill
+import pickle
 import numpy as np
 import pandas as pd
-from exception import CustomException
+from src.exception import CustomException
 
 from sklearn.metrics import r2_score
 from sklearn.model_selection import GridSearchCV
@@ -39,13 +40,21 @@ def get_model_evaluation(models, X_train, y_train, X_test, y_test, params):
 
             model = list(models.values())[i]
 
+<<<<<<< HEAD
             para = params[list(models.keys())[i]]
 
             gs = GridSearchCV(model,para,cv=3)
             gs.fit(X_train,y_train)
 
             model.set_params(**gs.best_params_)
+=======
+            para=param[list(models.keys())[i]]
 
+            gs = GridSearchCV(model,para,cv=3)
+            gs.fit(X_train,y_train)
+>>>>>>> dbfb82e4cd647741013666f77798ee9ecabd4f33
+
+            model.set_params(**gs.best_params_)
             model.fit(X_train, y_train)
 
             #model.fit(X_train, y_train)  # Train model
@@ -65,3 +74,12 @@ def get_model_evaluation(models, X_train, y_train, X_test, y_test, params):
     except Exception as e:
         raise CustomException(e, sys)
 
+
+# Load Object Function ----
+def load_object(file_path):
+    try:
+        with open(file_path, 'rb') as f:
+            return dill.load(f)
+
+    except Exception as e:
+        raise CustomException(e, sys)

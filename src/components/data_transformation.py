@@ -15,9 +15,9 @@ import os
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
-from logger import logging
-from exception import CustomException
-from utils import save_object
+from src.logger import logging
+from src.exception import CustomException
+from src.utils import save_object
 
 
 

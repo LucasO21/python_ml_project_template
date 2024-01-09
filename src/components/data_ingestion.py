@@ -6,10 +6,10 @@ import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 
-from exception import CustomException
-from logger import logging
-from components.data_transformation import DataTransformation, DataTransformationConfig
-from components.model_trainer import ModelTrainer, ModelTrainingConfig
+from src.exception import CustomException
+from src.logger import logging
+from src.components.data_transformation import DataTransformation, DataTransformationConfig
+from src.components.model_trainer import ModelTrainer, ModelTrainingConfig
 
 import pandas as pd
 
